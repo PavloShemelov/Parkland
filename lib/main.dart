@@ -251,11 +251,14 @@ class Header extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
-              // Add functionality for the menu button here
+              // Add functionality for the search button here
             },
-            icon: Icon(Icons.filter_list_alt),
-            color: Colors.black, // Icon color
-            iconSize: 24, // Icon size
+            icon: Image.asset(
+              "assets/images/filter.png", // Путь к изображению в папке assets
+              // Укажите также нужные свойства, например, высоту и ширину изображения
+              width: 24,
+              height: 24,
+            ),
           ),
         ),
       ],
