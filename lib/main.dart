@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'map/map_screen.dart';
+import 'screens/history_screen.dart';
+import 'screens/car_screen.dart';
+import 'screens/payment_screen.dart';
+import 'screens/account_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -37,13 +41,14 @@ class MapWithHeaderAndFooter extends StatelessWidget {
             bottom: 0,
             left: 0,
             right: 0,
+            height: 100, //высота футера
             child: BottomAppBar(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
                     onPressed: () {
-                      // Добавьте функциональность для кнопки "Home" здесь
+                      // Add functionality for Home button here
                     },
                     icon: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -64,7 +69,10 @@ class MapWithHeaderAndFooter extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      // Add functionality for the search button here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HistoryScreen()),
+                      );
                     },
                     icon: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -84,7 +92,10 @@ class MapWithHeaderAndFooter extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      // Add functionality for the favorite button here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CarScreen()),
+                      );
                     },
                     icon: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -110,7 +121,10 @@ class MapWithHeaderAndFooter extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      // Add functionality for the notifications button here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PaymentScreen()),
+                      );
                     },
                     icon: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -130,7 +144,10 @@ class MapWithHeaderAndFooter extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      // Add functionality for the settings button here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AccountScreen()),
+                      );
                     },
                     icon: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -251,14 +268,11 @@ class Header extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
-              // Add functionality for the search button here
+              // Add functionality for the menu button here
             },
-            icon: Image.asset(
-              "assets/images/filter.png", // Путь к изображению в папке assets
-              // Укажите также нужные свойства, например, высоту и ширину изображения
-              width: 24,
-              height: 24,
-            ),
+            icon: Icon(Icons.filter_list_alt),
+            color: Colors.black, // Icon color
+            iconSize: 24, // Icon size
           ),
         ),
       ],
@@ -332,4 +346,3 @@ class CardWidget extends StatelessWidget {
     );
   }
 }
-
