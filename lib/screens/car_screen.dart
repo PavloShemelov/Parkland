@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'account_screen.dart';
+import 'history_screen.dart';
+import 'payment_screen.dart';
 
 class CarScreen extends StatefulWidget {
   @override
@@ -65,6 +68,136 @@ class _CarScreenState extends State<CarScreen> {
             );
           }
         },
+      ),
+      bottomNavigationBar: buildFooter(context), // Add this line to include the footer
+    );
+  }
+
+  Widget buildFooter(BuildContext context) {
+    return BottomAppBar(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          IconButton(
+            onPressed: () {
+              // Navigate back to the main screen and remove all previous routes
+              Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+            },
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 24, // Icon size
+                  child: Icon(Icons.home),
+                ),
+                Text(
+                  'Home',
+                  style: TextStyle(
+                    fontSize: 7, // Text size
+                  ),
+                ),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HistoryScreen()),
+              );
+            },
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 24, // Icon size
+                  child: Icon(Icons.history),
+                ),
+                Text(
+                  'History',
+                  style: TextStyle(
+                    fontSize: 7, // Text size
+                  ),
+                ),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CarScreen()),
+              );
+            },
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 22, // Icon size
+                  child: Image.asset(
+                    'assets/images/car.png',
+                    width: 22,
+                    height: 22,
+                    color: Color.fromRGBO(255, 215, 2, 1),
+                  ),
+                ),
+                SizedBox(height: 1), // Spacing between icon and text
+                Text(
+                  'Car',
+                  style: TextStyle(
+                    fontSize: 7, color: Color.fromRGBO(255, 215, 2, 1),// Text size
+                  ),
+                ),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PaymentScreen()),
+              );
+            },
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 24, // Icon size
+                  child: Icon(Icons.payment),
+                ),
+                Text(
+                  'Payment',
+                  style: TextStyle(
+                    fontSize: 7,  // Text size
+                  ),
+                ),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AccountScreen()),
+              );
+            },
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 25, // Icon size
+                  child: Icon(Icons.settings),
+                ),
+                Text(
+                  'Account',
+                  style: TextStyle(
+                    fontSize: 7, // Text size
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
